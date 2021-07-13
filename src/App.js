@@ -1,11 +1,12 @@
-import React from 'react';
 import React, { Component } from 'react';
 
 class App extends Component {
-  state = {  }
+  state = {  };
   render() { 
-    return (  );
-  }
+    return ( 
+      <h1>Hello React!</h1>
+     );
+  };
 }
  
 export default App;
