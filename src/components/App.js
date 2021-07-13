@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import DisplayPanel from './DisplayPanel';
+import ButtonPanel from './ButtonPanel';
 import '../App.css';
 
 class App extends Component {
@@ -9,7 +11,10 @@ class App extends Component {
 
   render() {
     return (
-      <h1>Hello React.js!</h1>
+      <>
+        <DisplayPanel />
+        <ButtonPanel />
+      </>
     );
   }
 }
