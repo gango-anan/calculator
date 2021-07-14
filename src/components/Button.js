@@ -4,24 +4,17 @@ import PropTypes from 'prop-types';
 class Button extends Component {
   constructor(props) {
     super(props);
-    const { value } = this.props;
-    this.state = {
-      value,
-    };
+    this.state = {};
   }
 
   render() {
-    const { value } = this.state;
-    return <div>{value}</div>;
+    const { name } = this.props;
+    return <div>{name}</div>;
   }
 }
 
 Button.propTypes = {
-  value: PropTypes.string,
-};
-
-Button.defaultProps = {
-  value: '0',
+  name: PropTypes.string.isRequired,
 };
 
 export default Button;
