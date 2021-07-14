@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Button extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    const { value } = this.props;
+    this.state = {
+      value: value,
+    };
   }
 
   render() {
-    return <div>Button Component</div>;
+    const { value } = this.state;
+    return <div>{value}</div>;
   }
 }
+
+Button.propTypes = {
+  value: PropTypes.string,
+};
+
+Button.defaultProps = {
+  value: '0',
+};
 
 export default Button;

@@ -7,7 +7,11 @@ class DisplayPanel extends Component {
   }
 
   render() {
-    return <div>DisplayPanel Component</div>;
+    return (
+      <div>
+        Display Panel
+      </div>
+    );
   }
 }
 
