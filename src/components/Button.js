@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 class Button extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    const { name } = this.props;
+    this.state = {
+      name,
+    };
   }
 
   render() {
-    const { name } = this.props;
-    return <div>{name}</div>;
+    const { name } = this.state;
+    return <button type="button">{name}</button>;
   }
 }
 
