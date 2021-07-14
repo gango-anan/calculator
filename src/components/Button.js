@@ -6,7 +6,7 @@ class Button extends Component {
     super(props);
     const { value } = this.props;
     this.state = {
-      value: value,
+      value,
     };
   }
 
