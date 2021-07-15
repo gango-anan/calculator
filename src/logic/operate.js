@@ -14,7 +14,10 @@ const Operate = (() => {
       result = numOne.times(numTwo);
       return result.c[0];
     }
-
+    if (operation === '-') {
+      result = numOne.minus(numTwo);
+      return result.c[0];
+    }
 
     return result;
   };
