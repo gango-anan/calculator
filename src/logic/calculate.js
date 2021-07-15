@@ -1,23 +1,27 @@
+import Operate from "./operate";
+
 const Calculate = (() => {
-  calculate = (data, btnName) => {
+  const handleCalculations = (data, btnName) => {
     let { total, next, operation } = data;
-    if(btnName === '+') {
-
-    }
-    else if (btnName === '-') {
-
-    }
-    else if (btnName === 'X') {
-
-    }
-    else if (btnName === '÷') {
-
-    }
-    else if (btnName === '%') {
-
+    const operators = ['+', 'X', '/', '-'];
+    if(operators.includes(btnName)){
+      if (!total) {
+        total = 0;
+      }
+      if (total && !next) {
+        operation = btnName;
+      }
+      if (total && next && operation) {
+        total = Operate.operate(total, next, operation)
+      }
+      operation = btnName;
     }
 
-    return { total, next, operation };
+    return data
+  }
+
+  const calculate = (data, btnName) => {
+    handleCalculations(data, btnName);
   }
 
   return { calculate };
