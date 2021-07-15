@@ -10,6 +10,12 @@ const Operate = (() => {
       result = numOne.plus(numTwo);
       return result.c[0];
     }
+    if (operation === 'X') {
+      result = numOne.times(numTwo);
+      return result.c[0];
+    }
+
+
     return result;
   };
 
