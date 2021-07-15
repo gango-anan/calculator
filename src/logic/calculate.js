@@ -38,9 +38,64 @@ const Calculate = (() => {
     return data;
   }
 
+  const handleOtherOperations = (data, btnName) => {
+    let { total, next, operation } = data;
+    if (btnName === '+/-') {
+      total *= -1;
+      next *= -1;
+    }
+    if (btnName === '%') {
+      if (!total) {
+        total = Operate.operate(total, operation);
+      }
+      else {
+        next = Operate.operate(next, operation);
+      }
+    }
+    if (btnName === '+/-') {
+      total *= -1;
+      next *= -1;
+    }
+    if (btnName === 'AC') {
+      total = null;
+      next = null;
+      operation = null;
+    }
+    if (btnName === '=') {
+      if (!total && !next) {
+        return 0;
+      }
+      if (total && !next) {
+        return 0;
+      }
+      if (total && next) {
+        Operate.operate(total, next, operation);
+        next = null;
+        operation = btnName;
+      }
+    }
+    if (btnName === '.') {
+      if (!total) {
+        return '0.';
+      }
+      if (total && operation) {
+        total += '.';
+      }
+      if (total && operation && next) {
+        next += '.';
+      }
+      if (total && operation && !next) {
+        next += '0.';
+      }
+    }
+
+    return data;
+  }
+
   const calculate = (data, btnName) => {
     handleCalculations(data, btnName);
     handleNumberPad(data, btnName);
+    handleOtherOperations(data, btnName);
   }
 
   return { calculate };
