@@ -26,7 +26,8 @@ const Operate = (() => {
       result = numOne.div(Big(100));
       return result.c[0];
     }
-    return result;
+  
+    return 'Error';
   };
 
   return { operate };
