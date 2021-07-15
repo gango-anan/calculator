@@ -1,10 +1,11 @@
-import Operate from "./operate";
+import Operate from './operate';
 
 const Calculate = (() => {
   const handleCalculations = (data, btnName) => {
-    let { total, next, operation } = data;
+    const { next } = data;
+    let { total, operation } = data;
     const operators = ['+', 'X', '/', '-'];
-    if(operators.includes(btnName)){
+    if (operators.includes(btnName)) {
       if (!total) {
         total = 0;
       }
@@ -12,16 +13,17 @@ const Calculate = (() => {
         operation = btnName;
       }
       if (total && next && operation) {
-        total = Operate.operate(total, next, operation)
+        total = Operate.operate(total, next, operation);
       }
       operation = btnName;
     }
 
-    return data
-  }
+    return data;
+  };
 
   const handleNumberPad = (data, btnName) => {
-    let { total, next, operation } = data;
+    const { operation } = data;
+    let { next, total } = data;
     if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(btnName)) {
       if (!operation && !total) {
         total = btnName;
@@ -36,7 +38,7 @@ const Calculate = (() => {
     }
 
     return data;
-  }
+  };
 
   const handleOtherOperations = (data, btnName) => {
     let { total, next, operation } = data;
@@ -47,8 +49,7 @@ const Calculate = (() => {
     if (btnName === '%') {
       if (!total) {
         total = Operate.operate(total, operation);
-      }
-      else {
+      } else {
         next = Operate.operate(next, operation);
       }
     }
@@ -90,13 +91,13 @@ const Calculate = (() => {
     }
 
     return data;
-  }
+  };
 
   const calculate = (data, btnName) => {
     handleCalculations(data, btnName);
     handleNumberPad(data, btnName);
     handleOtherOperations(data, btnName);
-  }
+  };
 
   return { calculate };
 })();

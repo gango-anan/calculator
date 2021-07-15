@@ -1,6 +1,9 @@
+/* eslint-disable no-self-assign */
+
 import React, { Component } from 'react';
 import DisplayPanel from './DisplayPanel';
 import ButtonPanel from './ButtonPanel';
+import Calculate from '../logic/calculate';
 import '../App.css';
 
 class App extends Component {
@@ -12,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <DisplayPanel />
+        <DisplayPanel result={Calculate.calculate.total} />
         <ButtonPanel />
       </>
     );
