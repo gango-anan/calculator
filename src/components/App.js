@@ -9,7 +9,11 @@ import '../App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      total: null,
+      next: null,
+      operation: null,
+    };
   }
 
   render() {
