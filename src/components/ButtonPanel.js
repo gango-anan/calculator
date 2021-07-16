@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
 class ButtonPanel extends Component {
@@ -49,28 +50,42 @@ class ButtonPanel extends Component {
     };
   }
 
+  handleClick = (btnName) => {
+    const { clickHandler } = this.props;
+    clickHandler(btnName);
+  }
+
   render() {
     const { buttons } = this.state;
     return (
       <div>
         <div>
-          { buttons[0].rowOne.map((button) => <Button key={button.id} name={button.name} />) }
+          { buttons[0].rowOne
+            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
         </div>
         <div>
-          { buttons[1].rowTwo.map((button) => <Button key={button.id} name={button.name} />) }
+          { buttons[1].rowTwo
+            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
         </div>
         <div>
-          { buttons[2].rowThree.map((button) => <Button key={button.id} name={button.name} />) }
+          { buttons[2].rowThree
+            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
         </div>
         <div>
-          { buttons[3].rowFour.map((button) => <Button key={button.id} name={button.name} />) }
+          { buttons[3].rowFour
+            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
         </div>
         <div>
-          { buttons[4].rowFive.map((button) => <Button key={button.id} name={button.name} />) }
+          { buttons[4].rowFive
+            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
         </div>
       </div>
     );
   }
 }
+
+ButtonPanel.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+};
 
 export default ButtonPanel;

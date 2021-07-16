@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <>
         <DisplayPanel result={displayedOutput} />
-        <ButtonPanel onClick={this.handleClick} />
+        <ButtonPanel clickHandler={this.handleClick} />
       </>
     );
   }
