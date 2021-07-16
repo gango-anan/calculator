@@ -2,20 +2,24 @@ import Operate from './operate';
 
 const Calculate = (() => {
   const handleCalculations = (data, btnName) => {
-    const { next } = data;
-    let { total, operation } = data;
-    const operators = ['+', 'X', '/', '-'];
+    let { total, next, operation } = data;
+    const operators = ['+', 'X', '/', '-', '%'];
     if (operators.includes(btnName)) {
       if (!total) {
         total = 0;
+        operation = btnName;
       }
       if (total && !next) {
         operation = btnName;
       }
       if (total && next && operation) {
         total = Operate.operate(total, next, operation);
+        operation = btnName;
+        if (operation === '%') {
+          operation = null;
+        }
+        next = null;
       }
-      operation = btnName;
     }
 
     return data;
@@ -23,16 +27,18 @@ const Calculate = (() => {
 
   const handleNumberPad = (data, btnName) => {
     const { operation } = data;
-    let { next, total } = data;
+    let { total, next } = data;
     if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(btnName)) {
-      if (!operation && !total) {
+      if (!total) {
         total = btnName;
-      } else {
+      }
+      if (total && !operation) {
         total += btnName;
       }
-      if (!next) {
-        next = btnName;
-      } else {
+      if (total && operation && !next) {
+        next += btnName;
+      }
+      if (total && operation && next) {
         next += btnName;
       }
     }
@@ -43,19 +49,13 @@ const Calculate = (() => {
   const handleOtherOperations = (data, btnName) => {
     let { total, next, operation } = data;
     if (btnName === '+/-') {
-      total *= -1;
-      next *= -1;
-    }
-    if (btnName === '%') {
-      if (!total) {
-        total = Operate.operate(total, operation);
-      } else {
-        next = Operate.operate(next, operation);
+      if (total && next) {
+        total *= -1;
+        next *= -1;
       }
-    }
-    if (btnName === '+/-') {
-      total *= -1;
-      next *= -1;
+      if (total && !next) {
+        total *= -1;
+      }
     }
     if (btnName === 'AC') {
       total = null;
@@ -63,24 +63,26 @@ const Calculate = (() => {
       operation = null;
     }
     if (btnName === '=') {
-      if (!total && !next) {
-        return 0;
+      if (total && next && operation) {
+        total = Operate.operate(total, next, operation);
       }
-      if (total && !next) {
-        return 0;
+      if (!operation) {
+        total = null;
       }
-      if (total && next) {
-        Operate.operate(total, next, operation);
-        next = null;
-        operation = btnName;
-      }
+      operation = null;
+      next = null;
     }
     if (btnName === '.') {
       if (!total) {
-        return '0.';
+        total = '0.';
       }
       if (total && operation) {
-        total += '.';
+        if (next && !next.includes('.')) {
+          next = `${next}.`;
+        }
+        if (!next) {
+          next = '0.';
+        }
       }
       if (total && operation && next) {
         next += '.';

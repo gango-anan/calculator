@@ -4,20 +4,24 @@ import PropTypes from 'prop-types';
 class Button extends Component {
   constructor(props) {
     super(props);
-    const { name } = this.props;
-    this.state = {
-      name,
-    };
+    this.state = {};
+  }
+
+  handleClick = (btnName) => {
+    console.log(this.props);
+    const { clickHandler } = this.props;
+    clickHandler(btnName);
   }
 
   render() {
-    const { name } = this.state;
-    return <button type="button">{name}</button>;
+    const { name } = this.props;
+    return <button type="button" onClick={() => this.handleClick(name)}>{name}</button>;
   }
 }
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
+  clickHandler: PropTypes.func.isRequired,
 };
 
 export default Button;
