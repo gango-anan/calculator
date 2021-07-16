@@ -16,11 +16,27 @@ class App extends Component {
     };
   }
 
+  handleClick = (btnName) => {
+    const caculations = Calculate.calculate(this.state, btnName);
+    this.setState({ ...caculations });
+  }
+
   render() {
+    const { total, next, operation } = this.state;
+    let displayedOutput = '0';
+    if (!next && !operation && total) {
+      displayedOutput = total;
+    }
+    if (total && operation) {
+      displayedOutput = total;
+    }
+    if (next && total && operation) {
+      displayedOutput = next;
+    }
     return (
       <>
-        <DisplayPanel result={Calculate.calculate.total} />
-        <ButtonPanel />
+        <DisplayPanel result={displayedOutput} />
+        <ButtonPanel onClick={this.handleClick} />
       </>
     );
   }
