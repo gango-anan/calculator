@@ -7,12 +7,6 @@ class Button extends Component {
     this.state = {};
   }
 
-  // handleClick = (btnName) => {
-  //   console.log(this.props);
-  //   const { clickHandler } = this.props;
-  //   clickHandler(btnName);
-  // }
-
   render() {
     const { name, clickHandler } = this.props;
     return <button type="button" onClick={() => clickHandler(name)}>{name}</button>;

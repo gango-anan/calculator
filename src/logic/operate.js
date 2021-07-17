@@ -5,19 +5,16 @@ const Operate = (() => {
     const numOne = new Big(numberOne);
     const numTwo = new Big(numberTwo);
     if (operation === '+') {
-      return numOne.plus(numTwo).c.join('');
+      return numOne.plus(numTwo).toString();
     }
     if (operation === 'X') {
-      return numOne.times(numTwo).c.join('');
+      return numOne.times(numTwo).toString();
     }
     if (operation === '-') {
-      return numOne.minus(numTwo).c.join('');
+      return numTwo.minus(numOne).toString();
     }
     if (operation === '÷') {
-      return numOne.div(numTwo).c.join('');
-    }
-    if (operation === '%') {
-      return numOne.mod(numTwo).c.join('');
+      return numTwo.div(numOne).toString();
     }
 
     return 'Wrong Operator!';
