@@ -4,27 +4,23 @@ const Operate = (() => {
   const operate = (numberOne, numberTwo, operation) => {
     const numOne = new Big(numberOne);
     const numTwo = new Big(numberTwo);
-    let result = '';
     if (operation === '+') {
-      result = numOne.plus(numTwo).toString;
+      return numOne.plus(numTwo).c.join('');
     }
     if (operation === 'X') {
-      result = numOne.times(numTwo).toString;
+      return numOne.times(numTwo).c.join('');
     }
     if (operation === '-') {
-      result = numOne.minus(numTwo).toString;
+      return numOne.minus(numTwo).c.join('');
     }
     if (operation === '÷') {
-      result = numOne.div(numTwo).toString;
+      return numOne.div(numTwo).c.join('');
     }
     if (operation === '%') {
-      result = numOne.mod(numTwo).toString;
-    }
-    if (!(['%', '÷', 'X', '+'].includes(operation))) {
-      result = 'Error';
+      return numOne.mod(numTwo).c.join('');
     }
 
-    return result;
+    return 'Wrong Operator!';
   };
 
   return { operate };

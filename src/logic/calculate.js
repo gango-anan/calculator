@@ -85,35 +85,29 @@ const Calculate = (() => {
   // };
   const calculate = (data, btnName) => {
     let { total, next, operation } = data;
-    if (btnName === '+') {
+    if (['-', '÷', 'X', '+', '%'].includes(btnName)) {
       next = total;
       total = '';
       operation = btnName;
     }
-    // if(btnName === '-') {
-
-    // }
-    // if(btnName === 'X') {
-
-    // }
-    // if(btnName === '÷') {
-
-    // }
-    // if(btnName === '%') {
-
-    // }
 
     if (btnName === '=') {
       switch (operation) {
         case '+':
           total = Operate.operate(total, next, '+');
           break;
-        // case '':
-        //     statement_2;
-        //     break;
-        // case value_3:
-        //     statement_3;
-        //     break;
+        case '-':
+          total = Operate.operate(total, next, '-');
+          break;
+        case '÷':
+          total = Operate.operate(total, next, '÷');
+          break;
+        case 'X':
+          total = Operate.operate(total, next, 'X');
+          break;
+        case '%':
+          total = Operate.operate(total, next, '%');
+          break;
         default:
           total = 'Error';
       }

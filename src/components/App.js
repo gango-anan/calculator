@@ -1,5 +1,3 @@
-/* eslint-disable no-self-assign */
-
 import React, { Component } from 'react';
 import DisplayPanel from './DisplayPanel';
 import ButtonPanel from './ButtonPanel';
@@ -22,26 +20,31 @@ class App extends Component {
     if (!Number.isNaN(parseInt(btnName, 10))) {
       total = btnName;
     }
+
     const calculations = Calculate.calculate({ total, next, operation }, btnName);
     console.log(calculations);
     this.setState({ ...calculations });
   }
 
-  render() {
-    const { total, next, operation } = this.state;
+  valueToDisplay = (next, operation, total) => {
     let displayedOutput = '0';
     if (!next && !operation && total) {
       displayedOutput = total;
     }
-    if (total && operation) {
-      displayedOutput = total;
-    }
-    if (next && total && operation) {
+    if (!total && next && operation) {
       displayedOutput = next;
     }
+    if (next && total && operation) {
+      displayedOutput = total;
+    }
+    return displayedOutput;
+  }
+
+  render() {
+    const { total, next, operation } = this.state;
     return (
       <>
-        <DisplayPanel result={displayedOutput} />
+        <DisplayPanel result={this.valueToDisplay(next, operation, total)} />
         <ButtonPanel clickHandler={this.handleClick} />
       </>
     );
