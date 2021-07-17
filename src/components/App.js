@@ -22,7 +22,6 @@ class App extends Component {
     }
 
     const calculations = Calculate.calculate({ total, next, operation }, btnName);
-    console.log(calculations);
     this.setState({ ...calculations });
   }
 
