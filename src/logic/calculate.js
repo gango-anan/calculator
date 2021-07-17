@@ -85,6 +85,16 @@ const Calculate = (() => {
   // };
   const calculate = (data, btnName) => {
     let { total, next, operation } = data;
+    if (!Number.isNaN(parseInt(btnName, 10))) {
+      switch (total) {
+        case null:
+          total = btnName;
+          break;
+        default:
+          total += btnName;
+          break;
+      }
+    }
     if (['-', '÷', 'X', '+', '%'].includes(btnName)) {
       next = total;
       total = '';
@@ -110,6 +120,12 @@ const Calculate = (() => {
           break;
         default:
           total = 'Error';
+      }
+    }
+
+    if (btnName === '.') {
+      if (total && total.indexOf('.') === -1) {
+        total += btnName;
       }
     }
 
