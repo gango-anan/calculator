@@ -1,7 +1,7 @@
 import Operate from './operate';
 
 const Calculate = (() => {
-  const handleCalculations = (data, btnName) => {
+  const calculate = (data, btnName) => {
     let { total, next, operation } = data;
     const operators = ['+', 'X', '/', '-', '%'];
     if (operators.includes(btnName)) {
@@ -22,12 +22,6 @@ const Calculate = (() => {
       }
     }
 
-    return data;
-  };
-
-  const handleNumberPad = (data, btnName) => {
-    const { operation } = data;
-    let { total, next } = data;
     if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(btnName)) {
       if (!total) {
         total = btnName;
@@ -43,11 +37,6 @@ const Calculate = (() => {
       }
     }
 
-    return data;
-  };
-
-  const handleOtherOperations = (data, btnName) => {
-    let { total, next, operation } = data;
     if (btnName === '+/-') {
       if (total && next) {
         total *= -1;
@@ -92,13 +81,7 @@ const Calculate = (() => {
       }
     }
 
-    return data;
-  };
-
-  const calculate = (data, btnName) => {
-    handleCalculations(data, btnName);
-    handleNumberPad(data, btnName);
-    handleOtherOperations(data, btnName);
+    return { total, next, operation };
   };
 
   return { calculate };

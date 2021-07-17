@@ -17,8 +17,9 @@ class App extends Component {
   }
 
   handleClick = (btnName) => {
-    const caculations = Calculate.calculate(this.state, btnName);
-    this.setState({ ...caculations });
+    const calculations = Calculate.calculate(this.state, btnName);
+    console.log(calculations);
+    this.setState({ ...calculations });
   }
 
   render() {
