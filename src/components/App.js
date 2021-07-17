@@ -17,7 +17,12 @@ class App extends Component {
   }
 
   handleClick = (btnName) => {
-    const calculations = Calculate.calculate(this.state, btnName);
+    const { next, operation } = this.state;
+    let { total } = this.state;
+    if (!Number.isNaN(parseInt(btnName, 10))) {
+      total = btnName;
+    }
+    const calculations = Calculate.calculate({ total, next, operation }, btnName);
     console.log(calculations);
     this.setState({ ...calculations });
   }
