@@ -119,7 +119,6 @@ const Calculate = (() => {
           total = Operate.operate(total, next, '%');
           break;
         default:
-          total = 'Error';
       }
     }
 
@@ -127,6 +126,11 @@ const Calculate = (() => {
       if (total && total.indexOf('.') === -1) {
         total += btnName;
       }
+    }
+    if (btnName === 'AC') {
+      total = null;
+      next = null;
+      operation = null;
     }
 
     return { total, next, operation };
