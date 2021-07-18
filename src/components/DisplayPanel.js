@@ -4,14 +4,11 @@ import PropTypes from 'prop-types';
 class DisplayPanel extends Component {
   constructor(props) {
     super(props);
-    const { result } = this.props;
-    this.state = {
-      result,
-    };
+    this.state = { };
   }
 
   render() {
-    const { result } = this.state;
+    const { result } = this.props;
     return (
       <div>
         { result }

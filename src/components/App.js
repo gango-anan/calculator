@@ -1,5 +1,3 @@
-/* eslint-disable no-self-assign */
-
 import React, { Component } from 'react';
 import DisplayPanel from './DisplayPanel';
 import ButtonPanel from './ButtonPanel';
@@ -9,14 +7,38 @@ import '../App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      total: null,
+      next: null,
+      operation: null,
+    };
+  }
+
+  handleClick = (btnName) => {
+    const calculations = Calculate.calculate(this.state, btnName);
+    this.setState({ ...calculations });
+  }
+
+  valueToDisplay = (next, operation, total) => {
+    let displayedOutput = '0';
+    if (!next && !operation && total) {
+      displayedOutput = total;
+    }
+    if (!total && next && operation) {
+      displayedOutput = next;
+    }
+    if (next && total && operation) {
+      displayedOutput = total;
+    }
+    return displayedOutput;
   }
 
   render() {
+    const { total, next, operation } = this.state;
     return (
       <>
-        <DisplayPanel result={Calculate.calculate.total} />
-        <ButtonPanel />
+        <DisplayPanel result={this.valueToDisplay(next, operation, total)} />
+        <ButtonPanel clickHandler={this.handleClick} />
       </>
     );
   }
