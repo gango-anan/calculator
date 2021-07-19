@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DisplayPanel from './DisplayPanel';
 import ButtonPanel from './ButtonPanel';
 import Calculate from '../logic/calculate';
@@ -34,6 +34,12 @@ const App = () => {
     }
     return displayedOutput;
   };
+
+  useEffect(() => {
+    if (data.operation) {
+      document.title = `You just did a ${data.operation} operation`;
+    }
+  });
 
   return (
     <>
