@@ -43,7 +43,7 @@ const Calculator = () => {
 
   return (
     <>
-      <h1>Calculator</h1>
+      <h1 data-testid="calculator-heading">Calculator</h1>
       <DisplayPanel result={valueToDisplay(data)} />
       <ButtonPanel clickHandler={handleClick} />
     </>
