@@ -1,16 +1,3 @@
-// import React from 'react';
-
-// const Calculator = () => (
-//   <div>
-//     <h1>Calculator</h1>
-//     <p>
-//       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-//     </p>
-//   </div>
-// );
-
-// export default Calculator;
-
 import React, { useEffect, useState } from 'react';
 import DisplayPanel from './DisplayPanel';
 import ButtonPanel from './ButtonPanel';
@@ -26,6 +13,7 @@ const Calculator = () => {
 
   const handleClick = (btnName) => {
     const calculations = Calculate.calculate(data, btnName);
+    console.log(calculations);
     setData({
       total: calculations.total,
       next: calculations.next,
