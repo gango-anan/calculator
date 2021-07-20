@@ -13,7 +13,6 @@ const Calculator = () => {
 
   const handleClick = (btnName) => {
     const calculations = Calculate.calculate(data, btnName);
-    console.log(calculations);
     setData({
       total: calculations.total,
       next: calculations.next,
