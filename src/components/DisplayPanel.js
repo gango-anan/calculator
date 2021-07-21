@@ -1,21 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/DisplayPanel.css';
 
-class DisplayPanel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { };
-  }
-
-  render() {
-    const { result } = this.props;
-    return (
-      <div>
-        { result }
-      </div>
-    );
-  }
-}
+const DisplayPanel = ({ result }) => <div className="display-panel">{ result }</div>;
 
 DisplayPanel.propTypes = {
   result: PropTypes.string,

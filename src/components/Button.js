@@ -1,21 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/Button.css';
 
-class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    const { name, clickHandler } = this.props;
-    return <button type="button" onClick={() => clickHandler(name)}>{name}</button>;
-  }
-}
+const Button = ({ name, clickHandler, csName }) => <button className={`button ${csName}`} type="button" onClick={() => clickHandler(name)}>{name}</button>;
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
+  csName: PropTypes.string.isRequired,
 };
 
 export default Button;

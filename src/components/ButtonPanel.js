@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import '../styles/ButtonPanel.css';
 
 class ButtonPanel extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class ButtonPanel extends Component {
           rowThree: [
             { id: 'four', name: '4' },
             { id: 'five', name: '5' },
-            { id: '6', name: '6' },
+            { id: 'six', name: '6' },
             { id: 'subtraction', name: '-' },
           ],
         },
@@ -58,26 +59,31 @@ class ButtonPanel extends Component {
   render() {
     const { buttons } = this.state;
     return (
-      <div>
-        <div>
-          { buttons[0].rowOne
-            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
+      <div className="button-panel">
+        <div className="row">
+          { buttons[0].rowOne.map((btn) => (
+            <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} csName={btn.id} />
+          )) }
         </div>
-        <div>
-          { buttons[1].rowTwo
-            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
+        <div className="row">
+          { buttons[1].rowTwo.map((btn) => (
+            <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} csName={btn.id} />
+          )) }
         </div>
-        <div>
-          { buttons[2].rowThree
-            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
+        <div className="row">
+          { buttons[2].rowThree.map((btn) => (
+            <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} csName={btn.id} />
+          )) }
         </div>
-        <div>
-          { buttons[3].rowFour
-            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
+        <div className="row">
+          { buttons[3].rowFour.map((btn) => (
+            <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} csName={btn.id} />
+          )) }
         </div>
-        <div>
-          { buttons[4].rowFive
-            .map((btn) => <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} />) }
+        <div className="row">
+          { buttons[4].rowFive.map((btn) => (
+            <Button clickHandler={this.handleClick} key={btn.id} name={btn.name} csName={btn.id} />
+          )) }
         </div>
       </div>
     );

@@ -2,6 +2,10 @@
 ## About
 Calculator application built using React.js
 
+## Below is a screenshot of the App
+
+![screenshot](./images/calculator.png)
+
 ## Built With
 
 - HTML
@@ -35,12 +39,22 @@ First install node.js
 ```
 $ npm install
 ```
-
-## Launching the web server
+### Run the test suite to verify that everything is working correctly:
 ```
-Lauch the application using the following command
+$ npm test
+```
+### If the test suite passes, launch the web server using the following command:
+```
 $ npm start
-
+```
+### Finally you can launch the application in your browser URL tab, by typing:
+```
+localhost:3000
+```
+### Navigation
+```
+Click on the Calculator tab to open the Calculator and start using the calculator.
+You can also take a peek at the math quote of the day by clicking on the Quote tab.
 ```
 
 ## Author
