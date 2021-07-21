@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DisplayPanel from './DisplayPanel';
 import ButtonPanel from './ButtonPanel';
 import Calculate from '../logic/calculate';
-import '../App.css';
+import '../styles/Calculator.css';
 
 const Calculator = () => {
   const [data, setData] = useState({
@@ -42,11 +42,10 @@ const Calculator = () => {
   });
 
   return (
-    <>
-      <h1 data-testid="calculator-heading">Calculator</h1>
+    <div className="calculator-wrapper">
       <DisplayPanel result={valueToDisplay(data)} />
       <ButtonPanel clickHandler={handleClick} />
-    </>
+    </div>
   );
 };
 

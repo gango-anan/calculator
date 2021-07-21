@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import Home from '../components/Home';
 
 beforeEach(() => {
-  render( <Home /> );
+  render(<Home />);
 });
 
 afterEach(() => {

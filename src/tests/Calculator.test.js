@@ -1,11 +1,12 @@
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import {
+  render, screen, cleanup, fireEvent,
+} from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
 import Calculator from '../components/Calculator';
 
-
 beforeEach(() => {
-  render( <Calculator /> );
+  render(<Calculator />);
 });
 
 afterEach(() => {
@@ -15,11 +16,6 @@ afterEach(() => {
 test('Matches snapshot', () => {
   const tree = renderer.create(<Calculator />).toJSON();
   expect(tree).toMatchSnapshot();
-});
-
-test("should have the text 'Calculator'", () => {
-  const heading = screen.getByTestId('calculator-heading');
-  expect(heading).toHaveTextContent('Calculator');
 });
 
 test('Should show the correct result of a subtraction operation', () => {

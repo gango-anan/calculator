@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import Quote from '../components/Quote';
 
 beforeEach(() => {
-  render( <Quote /> );
+  render(<Quote />);
 });
 
 afterEach(() => {

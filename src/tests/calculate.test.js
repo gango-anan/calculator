@@ -29,4 +29,3 @@ describe('calculate method', () => {
     expect(Calculate.calculate({ total: '5', next: '10', operation: '+' }, 'AC')).toEqual({ total: null, next: null, operation: null });
   });
 });
-
