@@ -1,0 +1,58 @@
+.navigation-bar {
+  background:
+    linear-gradient(
+      to top,
+      #767676 0%,
+      #767676 50%,
+      rgba(77, 77, 77, 1) 60%,
+      rgba(80, 80, 80, 1) 70%,
+      rgba(77, 77, 77, 0.8) 80%
+    );
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.banner {
+  font-size: 1.5rem;
+}
+
+.banner-link {
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+ul > li {
+  padding: 0 2rem;
+  border-right: 1px solid #595959;
+  display: inline-block;
+}
+
+nav :is(a) {
+  text-decoration: none;
+  color: #fff;
+}
+
+:is(li) a:hover,
+:is(li) a:focus {
+  padding: 0.5rem 1rem;
+  border: 1px solid #858694;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(66, 66, 66, 1) 0%,
+      rgba(66, 66, 66, 1) 50%,
+      rgba(55, 55, 55, 1) 51%,
+      rgba(60, 60, 60, 1) 60%,
+      rgba(55, 55, 55, 0.8) 100%
+    );
+}
