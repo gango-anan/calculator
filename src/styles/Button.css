@@ -1,0 +1,33 @@
+.button {
+  display: block;
+  width: 25%;
+  font-weight: bold;
+  font-size: 1.8rem;
+  background-color: #e0e0e0;
+  color: #000;
+  outline: 2px solid #e0e0e0;
+}
+
+.zero {
+  width: 50%;
+}
+
+.dot {
+  width: 25%;
+}
+
+.equals {
+  width: 25%;
+}
+
+.division,
+.multiplication,
+.subtraction,
+.addition,
+.equals {
+  background-color: #f5913e;
+}
+
+.button:hover {
+  cursor: pointer;
+}
