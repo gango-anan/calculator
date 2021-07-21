@@ -1,0 +1,11 @@
+.display-panel {
+  background-color: #858694;
+  color: #fff;
+  font-weight: bold;
+  font-size: 4rem;
+  height: 100px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
