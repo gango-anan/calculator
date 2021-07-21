@@ -4,7 +4,7 @@ Calculator application built using React.js
 
 ## Below is a screenshot of the App
 
-![screenshot](./images/CalculatorScreenshot.png)
+![screenshot](./images/calculator.png)
 
 ## Built With
 
